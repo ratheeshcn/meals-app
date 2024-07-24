@@ -5,6 +5,11 @@ import { StyleSheet } from "react-native";
 
 function CategoriesScreen({ navigation }) {
   function renderedcategoryItem(itemData) {
+    function pressHandler() {
+      navigation.navigate("MealsOverview", {
+        categoryID: itemData.item.id,
+      });
+    }
     return (
       <CategoryGridTile
         title={itemData.item.title}
@@ -12,10 +17,6 @@ function CategoriesScreen({ navigation }) {
         onPress={pressHandler}
       />
     );
-  }
-
-  function pressHandler() {
-    navigation.navigate("MealsOverview");
   }
   return (
     <FlatList
